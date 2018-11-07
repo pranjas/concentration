@@ -14,6 +14,8 @@
 		5B5C61982191256C00EEDC4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B5C61972191256C00EEDC4D /* Assets.xcassets */; };
 		5B5C619B2191256C00EEDC4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5C61992191256C00EEDC4D /* LaunchScreen.storyboard */; };
 		5B5C61A62191256C00EEDC4D /* ConcentrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C61A52191256C00EEDC4D /* ConcentrationTests.swift */; };
+		5B5C61B22191265B00EEDC4D /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C61B12191265B00EEDC4D /* Cards.swift */; };
+		5B5C61B4219135B000EEDC4D /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C61B3219135B000EEDC4D /* Concentration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		5B5C61A12191256C00EEDC4D /* ConcentrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConcentrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B5C61A52191256C00EEDC4D /* ConcentrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationTests.swift; sourceTree = "<group>"; };
 		5B5C61A72191256C00EEDC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B5C61B12191265B00EEDC4D /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		5B5C61B3219135B000EEDC4D /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		5B5C618C2191256B00EEDC4D /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
+				5B5C61B02191263A00EEDC4D /* Model */,
 				5B5C618D2191256B00EEDC4D /* AppDelegate.swift */,
 				5B5C618F2191256B00EEDC4D /* ViewController.swift */,
 				5B5C61912191256B00EEDC4D /* Main.storyboard */,
@@ -97,6 +102,15 @@
 				5B5C61A72191256C00EEDC4D /* Info.plist */,
 			);
 			path = ConcentrationTests;
+			sourceTree = "<group>";
+		};
+		5B5C61B02191263A00EEDC4D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B5C61B12191265B00EEDC4D /* Cards.swift */,
+				5B5C61B3219135B000EEDC4D /* Concentration.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,8 +215,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B5C61902191256B00EEDC4D /* ViewController.swift in Sources */,
+				5B5C61B4219135B000EEDC4D /* Concentration.swift in Sources */,
 				5B5C61962191256B00EEDC4D /* Concentration.xcdatamodeld in Sources */,
 				5B5C618E2191256B00EEDC4D /* AppDelegate.swift in Sources */,
+				5B5C61B22191265B00EEDC4D /* Cards.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
