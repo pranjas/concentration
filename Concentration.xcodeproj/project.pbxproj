@@ -16,6 +16,8 @@
 		5B5C61A62191256C00EEDC4D /* ConcentrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C61A52191256C00EEDC4D /* ConcentrationTests.swift */; };
 		5B5C61B22191265B00EEDC4D /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C61B12191265B00EEDC4D /* Cards.swift */; };
 		5B5C61B4219135B000EEDC4D /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C61B3219135B000EEDC4D /* Concentration.swift */; };
+		5BDED4D22193D56B00D60B9F /* ConcentrationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDED4D12193D56B00D60B9F /* ConcentrationCard.swift */; };
+		5BDED4D42193DA6300D60B9F /* ConcentrationTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDED4D32193DA6300D60B9F /* ConcentrationTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		5B5C61A72191256C00EEDC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B5C61B12191265B00EEDC4D /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		5B5C61B3219135B000EEDC4D /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
+		5BDED4D12193D56B00D60B9F /* ConcentrationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationCard.swift; sourceTree = "<group>"; };
+		5BDED4D32193DA6300D60B9F /* ConcentrationTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 			children = (
 				5B5C61B12191265B00EEDC4D /* Cards.swift */,
 				5B5C61B3219135B000EEDC4D /* Concentration.swift */,
+				5BDED4D12193D56B00D60B9F /* ConcentrationCard.swift */,
+				5BDED4D32193DA6300D60B9F /* ConcentrationTheme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,7 +222,9 @@
 			files = (
 				5B5C61902191256B00EEDC4D /* ViewController.swift in Sources */,
 				5B5C61B4219135B000EEDC4D /* Concentration.swift in Sources */,
+				5BDED4D42193DA6300D60B9F /* ConcentrationTheme.swift in Sources */,
 				5B5C61962191256B00EEDC4D /* Concentration.xcdatamodeld in Sources */,
+				5BDED4D22193D56B00D60B9F /* ConcentrationCard.swift in Sources */,
 				5B5C618E2191256B00EEDC4D /* AppDelegate.swift in Sources */,
 				5B5C61B22191265B00EEDC4D /* Cards.swift in Sources */,
 			);

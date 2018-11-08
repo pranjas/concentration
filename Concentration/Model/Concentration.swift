@@ -10,66 +10,47 @@ import Foundation
 
 class Concentration {
     
-    private var cards = [Card]()
+    private var cards = [ConcentrationCard]()
     
-    private(set) var prevFaceUpCard, curFaceUpCard :Card?
+    private(set) var faceUpCard:ConcentrationCard?
     
     init(numCards: Int) {
         for _ in 0..<numCards {
-            cards.append(Card(rank: Card.ALL_RANKS.randomRank(), suite: Card.ALL_SUITES.randomSuite()))
+            
         }
     }
     
-    public func flip() {
-        if prevFaceUpCard is nil {
-            prevFaceUpCard = cards[cards.count.ra]
+    func getCardAt(index :Int) -> ConcentrationCard? {
+        if index >= cards.count {
+            return nil
         }
+        return cards[index]
+    }
+    
+    //    MARK: about the flip function
+//    There's one an only faceup card, when flip is called
+//    next time, then we just check what was the card earlier
+//    and if matches it or not. So the way this works would be
+//    flip would need to be called in a pair.
+    
+    public func flip(card : ConcentrationCard)->Bool {
+        if faceUpCard == nil {
+            faceUpCard = card
+        } else {
+            let result = faceUpCard!.equals(card: card)
+            faceUpCard = nil
+            return result
+        }
+        return false
     }
 }
 
 extension Int {
     func random() -> Int {
         if self != 0 {
-            return Int(arc4random()) % (self + 1)
+            return Int(arc4random()) % (self)
         } else {
             return 0
         }
-    }
-    
-    //MARK: Get a randomRank for our card.
-    func randomRank()->Card.Rank {
-        var rank = 0
-        var randomRank = Card.Rank.ace
-        
-        if self > 0 {
-            rank = Int(arc4random()) % (self + 1)
-        }
-        for __rank in Card.Rank.allCases {
-            while(rank > 0) {
-                rank -= 1
-                continue
-            }
-            randomRank = __rank
-            break
-        }
-        return randomRank
-    }
-    
-    //MARK: Get a random Suite for our card.
-    func randomSuite()->Card.Suite {
-        var suite = 0
-        var randomSuite = Card.Suite.diamond
-        if self > 0 {
-            suite = Int(arc4random()) % (self + 1)
-        }
-        for __suite in Card.Suite.allCases {
-            while (suite > 0) {
-                suite -= 1
-                continue
-            }
-            randomSuite = __suite
-            break
-        }
-        return randomSuite
     }
 }

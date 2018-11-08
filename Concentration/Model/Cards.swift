@@ -30,6 +30,14 @@ struct Card {
         case heart = "♥️"
         case club = "♣️"
     }
+    
+    public func equals(_ card :Card)->Bool {
+        if self.rank == card.rank &&
+            self.suite == card.suite {
+            return true
+        }
+        return false
+    }
     static let ALL_RANKS = 13
     static let ALL_SUITES = 4
 }
