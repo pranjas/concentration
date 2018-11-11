@@ -10,8 +10,7 @@ import Foundation
 
 struct ConcentrationCard {
     var label :String
-    var faceup: Bool
-    func equals (card:ConcentrationCard?)->Bool{
-        return card?.equals(card:self) ?? false
+    func equals (card:ConcentrationCard)->Bool{
+        return card.label == self.label
     }
 }
