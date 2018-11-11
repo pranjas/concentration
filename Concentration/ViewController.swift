@@ -10,15 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let numCards = 10
-    lazy var game = Concentration(numCards: numCards)
-    let flipLabel = UILabel()
+    private let numCards = 10
+    private lazy var game = Concentration(numCards: numCards)
+    private let flipLabel = UILabel()
     
     private var allButtons = [[UIButton]]()
     private let rows = 5
     private let cols = 4
     private var faceupCardIndex: Int?
     private let newGameButton = UIButton()
+
+    private let enabledButtonColor = UIColor.orange
+    private let disabledButtonColor = UIColor.gray
+    private let newGameButtonColor = UIColor.init(red: 0.31, green: 0.61, blue: 0.22, alpha: 0.78)
+    private let systemFontSize = UIFont.systemFontSize * 4
+    private let stackViewSpacing :CGFloat = 5.0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +43,7 @@ class ViewController: UIViewController {
         flipLabel.text = "Flips = 0"
         flipLabel.textAlignment = .center
         flipLabel.textColor = .red
-        flipLabel.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
+        flipLabel.font = UIFont.systemFont(ofSize: systemFontSize, weight: .heavy)
         let horizStackView = UIStackView()
         horizStackView.alignment = .fill
         horizStackView.axis = .horizontal
@@ -48,10 +55,7 @@ class ViewController: UIViewController {
         newGameButton.backgroundColor = newGameButtonColor
         newGameButton.addTarget(self, action: #selector(ViewController.onResetButtonClick(_:)), for: .touchUpInside)
         stackView.addArrangedSubview(horizStackView)
-        flipLabel.sizeToFit()
-//        flipLabel.adjustsFontForContentSizeCategory = true
         flipLabel.adjustsFontSizeToFitWidth = true
-    
     }
     
     @IBAction func onResetButtonClick(_ sender: UIButton) {
@@ -77,9 +81,9 @@ class ViewController: UIViewController {
             let btn = UIButton()
             btn.backgroundColor = enabledButtonColor
             
-            btn.titleLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .heavy)
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: systemFontSize, weight: .heavy)
             horizontalStackView.addArrangedSubview(btn)
-            horizontalStackView.spacing = 5.0
+            horizontalStackView.spacing = stackViewSpacing
             btn.tag = whichRow * cols + x
             allButtons[whichRow].append(btn)
             btn.setTitle("", for: .normal)
@@ -92,8 +96,6 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var stackView: UIStackView!
-    private var prevIndex :Int?
-    private var checkFlip = false
     private var flipCount = 0 {
         didSet {
             flipLabel.text = "Flips = \(flipCount)"
@@ -101,18 +103,23 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onCardClick(_ sender: UIButton) {
+        
+        //MARK: if we click the faced up card again then do nothing.
         if (sender.tag == faceupCardIndex) {
             return
         }
         
         sender.setTitle(game.getCardAt(index: sender.tag)?.label ?? "", for: .normal)
         
-
+        //This will probably run each time except the first time
+        //or When we have a new game.
+        
         if game.faceUpCard != nil {
             let row = faceupCardIndex! / cols
             let col = faceupCardIndex! % cols
             let faceupCardbtn = allButtons[row][col]
             
+            //MARK: Check if we flip and match. flip returns true if we have a match
             if game.flip(cardAt: sender.tag) {
                 sender.isEnabled = false
                 sender.backgroundColor = disabledButtonColor
@@ -122,19 +129,13 @@ class ViewController: UIViewController {
             else {
                 faceupCardbtn.backgroundColor = enabledButtonColor
                 faceupCardbtn.setTitle("", for: .normal)
-//                sender.setTitle("", for: .normal)
             }
         } else {
-            let boolx = game.flip(cardAt: sender.tag)
-            print("Setting facupCardIndex, boolx=\(boolx)")
-            
+            let _ = game.flip(cardAt: sender.tag)
         }
         faceupCardIndex = sender.tag
         flipCount += 1
     }
     
-    let enabledButtonColor = UIColor.orange
-    let disabledButtonColor = UIColor.gray
-    let newGameButtonColor = UIColor.init(red: 0.31, green: 0.61, blue: 0.22, alpha: 0.78)
 }
 
