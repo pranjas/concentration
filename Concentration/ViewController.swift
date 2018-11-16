@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     private let newGameButtonColor = UIColor.init(red: 0.31, green: 0.61, blue: 0.22, alpha: 0.78)
     private let systemFontSize = UIFont.systemFontSize * 4
     private let stackViewSpacing :CGFloat = 5.0
+    
+    private var clickedDate = Date()
 
     
     override func viewDidLoad() {
@@ -87,7 +89,6 @@ class ViewController: UIViewController {
             btn.tag = whichRow * cols + x
             allButtons[whichRow].append(btn)
             btn.setTitle("", for: .normal)
-//            btn.titleLabel?.sizeToFit()
             btn.titleLabel?.adjustsFontSizeToFitWidth = true
             
             btn.addTarget(self, action: #selector(ViewController.onCardClick(_:)), for: .touchUpInside)
@@ -113,29 +114,35 @@ class ViewController: UIViewController {
         
         //This will probably run each time except the first time
         //or When we have a new game.
+        let secondClickDate = Date()
+        let interval = secondClickDate.timeIntervalSince(clickedDate)
+        clickedDate = secondClickDate
+        var scoreAmount  = 0
         
         if game.faceUpCard != nil {
             let row = faceupCardIndex! / cols
             let col = faceupCardIndex! % cols
             let faceupCardbtn = allButtons[row][col]
-            
             //MARK: Check if we flip and match. flip returns true if we have a match
             if game.flip(cardAt: sender.tag) {
                 sender.isEnabled = false
                 sender.backgroundColor = disabledButtonColor
                 faceupCardbtn.backgroundColor = disabledButtonColor
                 faceupCardbtn.isEnabled = false
+                scoreAmount = 2
             }
             else {
                 faceupCardbtn.backgroundColor = enabledButtonColor
                 faceupCardbtn.setTitle("", for: .normal)
+                scoreAmount = -1
             }
         } else {
             let _ = game.flip(cardAt: sender.tag)
         }
         faceupCardIndex = sender.tag
-        flipCount += 1
+        scoreAmount = (interval < 2) ? (scoreAmount * 2) : scoreAmount
+        flipCount += scoreAmount
+        clickedDate = Date() // Get the current date and time.
     }
-    
 }
 
