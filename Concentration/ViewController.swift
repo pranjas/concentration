@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     }
     
     private func addFlipLabelAndNewGameButton() {
-        flipLabel.text = "Flips = 0"
+        flipLabel.text = ConcentrationConstant.SCORE_STRING + " 0"
         flipLabel.textAlignment = .center
         flipLabel.textColor = .red
         flipLabel.font = UIFont.systemFont(ofSize: systemFontSize, weight: .heavy)
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         
         horizStackView.addArrangedSubview(flipLabel)
         horizStackView.addArrangedSubview(newGameButton)
-        newGameButton.setTitle("New Game", for: .normal)
+        newGameButton.setTitle(ConcentrationConstant.NEW_GAME_STRING , for: .normal)
         newGameButton.backgroundColor = newGameButtonColor
         newGameButton.addTarget(self, action: #selector(ViewController.onResetButtonClick(_:)), for: .touchUpInside)
         stackView.addArrangedSubview(horizStackView)
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     private var flipCount = 0 {
         didSet {
-            flipLabel.text = "Flips = \(flipCount)"
+            flipLabel.text = ConcentrationConstant.SCORE_STRING + " \(flipCount)"
         }
     }
 

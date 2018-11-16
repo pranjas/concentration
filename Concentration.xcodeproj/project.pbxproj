@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46F9C889219E96A000369F03 /* ConcentrationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F9C888219E96A000369F03 /* ConcentrationConstants.swift */; };
 		5B5C618E2191256B00EEDC4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C618D2191256B00EEDC4D /* AppDelegate.swift */; };
 		5B5C61902191256B00EEDC4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C618F2191256B00EEDC4D /* ViewController.swift */; };
 		5B5C61932191256B00EEDC4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5C61912191256B00EEDC4D /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46F9C888219E96A000369F03 /* ConcentrationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConcentrationConstants.swift; path = View/ConcentrationConstants.swift; sourceTree = "<group>"; };
 		5B5C618A2191256B00EEDC4D /* Concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B5C618D2191256B00EEDC4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B5C618F2191256B00EEDC4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				5B5C61992191256C00EEDC4D /* LaunchScreen.storyboard */,
 				5B5C619C2191256C00EEDC4D /* Info.plist */,
 				5B5C61942191256B00EEDC4D /* Concentration.xcdatamodeld */,
+				46F9C888219E96A000369F03 /* ConcentrationConstants.swift */,
 			);
 			path = Concentration;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				5B5C61902191256B00EEDC4D /* ViewController.swift in Sources */,
 				5B5C61B4219135B000EEDC4D /* Concentration.swift in Sources */,
 				5BDED4D42193DA6300D60B9F /* ConcentrationTheme.swift in Sources */,
+				46F9C889219E96A000369F03 /* ConcentrationConstants.swift in Sources */,
 				5B5C61962191256B00EEDC4D /* Concentration.xcdatamodeld in Sources */,
 				5BDED4D22193D56B00D60B9F /* ConcentrationCard.swift in Sources */,
 				5B5C618E2191256B00EEDC4D /* AppDelegate.swift in Sources */,
